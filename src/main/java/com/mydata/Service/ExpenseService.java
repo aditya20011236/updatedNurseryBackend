@@ -14,4 +14,7 @@ public interface ExpenseService {
     List<Expense>getExpenseBetweenDates(String StartDate,String EndDate);
     
     Map<String, Double> calculateDailyExpenses(String startDate, String endDate);
-}
+    
+    List<Expense> getExpensesByTypeAndDate(String expenseType, String startDate, String endDate);
+ }
+    

@@ -13,4 +13,6 @@ public interface Expancerepository extends JpaRepository<Expense, Long>{
 	 public List<Expense> getDataBetweenDates(@Param("startDate") String startDate, @Param("endDate") String endDate);
 	
 	List<Expense> findByDateBetween(String startDate, String endDate);
+	
+	 List<Expense> findByExpenseTypeAndDateBetween(String expenseType, String startDate, String endDate);
 }

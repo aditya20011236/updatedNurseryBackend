@@ -4,8 +4,6 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -13,7 +11,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Customer {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String date;
 	private String customerName;
@@ -116,6 +114,28 @@ public class Customer {
 	public void setPlants(List<Plant> plants) {
 		this.plants = plants;
 	}
-	
+
+	public Customer(Long id, String date, String customerName, String customerAddress, String customerPhoneNumber,
+			String deliveryDate, double advancePayment, double grandTotal, double remainingPayment, double discount,
+			List<Plant> plants) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+		this.customerPhoneNumber = customerPhoneNumber;
+		this.deliveryDate = deliveryDate;
+		this.advancePayment = advancePayment;
+		this.grandTotal = grandTotal;
+		this.remainingPayment = remainingPayment;
+		this.discount = discount;
+		this.plants = plants;
+	}
+
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	
 }

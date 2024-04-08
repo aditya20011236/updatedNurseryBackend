@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Products  {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
     private String productName;
     private Date date;
@@ -52,6 +52,20 @@ public class Products  {
 	}
 	public void setSellingPrice(double sellingPrice) {
 		this.sellingPrice = sellingPrice;
+	}
+	public Products(Long id, String productName, Date date, int availableQuantity, double mfgPrice,
+			double sellingPrice) {
+		super();
+		this.id = id;
+		this.productName = productName;
+		this.date = date;
+		this.availableQuantity = availableQuantity;
+		this.mfgPrice = mfgPrice;
+		this.sellingPrice = sellingPrice;
+	}
+	public Products() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	

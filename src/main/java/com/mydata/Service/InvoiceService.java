@@ -16,10 +16,9 @@ public interface InvoiceService {
 	Map<String, Double> calculateDailyInvoices(String startDate, String endDate);
 
 //    public Invoice saveInvoiceAndUpdateProducts(Invoice invoice);
+//
+//	public void init();
 
-	public void init();
+	public int getLatestInvoiceNumber();
 
-	
-
-	
 }

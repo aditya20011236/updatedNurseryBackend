@@ -54,19 +54,16 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	}
 
-	 @PostConstruct
-	    public void init() {
-	        // Initialize the last invoice number when the application starts
-	        Invoice latestInvoice = invoiceRepository.findTopByOrderByInvoiceNoDesc();
-	        if (latestInvoice != null) {
-	            lastInvoiceNumber = latestInvoice.getInvoiceNo();
-	        }
-	    }
+//	 @PostConstruct
+//	    public void init() {
+//	        // Initialize the last invoice number when the application starts
+//	        Invoice latestInvoice = invoiceRepository.findTopByOrderByInvoiceNoDesc();
+//	        if (latestInvoice != null) {
+//	            lastInvoiceNumber = latestInvoice.getInvoiceNo();
 
-	    public int getNextInvoiceNumber() {
-	        // Increment the last invoice number and save it to the database
-	        lastInvoiceNumber++;
-	        invoiceRepository.save(new Invoice(lastInvoiceNumber));
-	        return lastInvoiceNumber;
-	    }
+	@Override
+	public int getLatestInvoiceNumber() {
+		Integer maxInvoiceNumber = invoiceRepository.findMaxInvoiceNumber();
+		return maxInvoiceNumber != null ? maxInvoiceNumber : 0;
 	}
+}

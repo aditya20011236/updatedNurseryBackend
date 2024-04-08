@@ -1,6 +1,5 @@
 package com.mydata.Service;
 
-import com.mydata.Model.Product;
 import com.mydata.Model.Products;
 import com.mydata.Repository.ProductRepository;
 import com.mydata.Repository.ProductsRepository;
@@ -30,6 +29,9 @@ public class ProductsServiceImpl implements ProductsService {
 
 	@Override
 	public Products createProduct(Products product) {
+		Long lastId = getLastProductId();
+		Long nextId = lastId + 1;
+		product.setId(nextId);
 		return productsRepository.save(product);
 	}
 
@@ -61,4 +63,18 @@ public class ProductsServiceImpl implements ProductsService {
 
 	}
 
+	@Override
+	public void deductQuantity(Long productId, int quantity) {
+		Products product = productsRepository.findById(productId).orElse(null);
+		if (product != null) {
+			int updatedQuantity = product.getAvailableQuantity() - quantity;
+			product.setAvailableQuantity(updatedQuantity);
+			productsRepository.save(product);
+		}
+	}
+
+	public Long getLastProductId() {
+		Long lastId = productsRepository.findTopByOrderByIdDesc().getId();
+		return lastId != null ? lastId : 0;
+	}
 }

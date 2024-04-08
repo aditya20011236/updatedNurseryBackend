@@ -15,6 +15,7 @@ public class Material {
     private double pricePerUnit;
     private int quantity;
     private double total;
+    private String expenseDetails;
 	public Long getId() {
 		return id;
 	}
@@ -45,17 +46,25 @@ public class Material {
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	public Material(Long id, String materialName, double pricePerUnit, int quantity, double total) {
+	public String getExpenseDetails() {
+		return expenseDetails;
+	}
+	public void setExpenseDetails(String expenseDetails) {
+		this.expenseDetails = expenseDetails;
+	}
+	public Material(Long id, String materialName, double pricePerUnit, int quantity, double total,
+			String expenseDetails) {
 		super();
 		this.id = id;
 		this.materialName = materialName;
 		this.pricePerUnit = pricePerUnit;
 		this.quantity = quantity;
 		this.total = total;
+		this.expenseDetails = expenseDetails;
 	}
 	public Material() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
+	
 }

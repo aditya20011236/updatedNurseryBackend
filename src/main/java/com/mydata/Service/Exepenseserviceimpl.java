@@ -32,15 +32,26 @@ public class Exepenseserviceimpl implements ExpenseService {
 
 	@Override
 	public Map<String, Double> calculateDailyExpenses(String startDate, String endDate) {
-		 List<Expense> expenses = expancerepository.findByDateBetween(startDate, endDate);
-	        Map<String, Double> dailyExpenses = new HashMap<>();
+		List<Expense> expenses = expancerepository.findByDateBetween(startDate, endDate);
+		Map<String, Double> dailyExpenses = new HashMap<>();
 
-	        for (Expense expense : expenses) {
-	            String date = expense.getDate();
-	            double amount = Double.parseDouble(expense.getGrandTotal());
-	            dailyExpenses.merge(date, amount, Double::sum);
-	        }
+		for (Expense expense : expenses) {
+			String date =expense.getDate();
+			double amount = Double.parseDouble(expense.getGrandTotal());
+			dailyExpenses.merge(date, amount, Double::sum);
+		}
 
-	        return dailyExpenses;
-	    }
+		return dailyExpenses;
 	}
+
+	@Override
+	public List<Expense> getExpensesByTypeAndDate(String expenseType, String startDate, String endDate) {
+		if (expenseType.isEmpty()) {
+            return expancerepository.getDataBetweenDates(startDate, endDate);
+        } else {
+            return expancerepository.findByExpenseTypeAndDateBetween(expenseType, startDate, endDate);
+        }
+	}
+}
+	
+

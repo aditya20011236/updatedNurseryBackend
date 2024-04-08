@@ -17,5 +17,7 @@ public interface ProductsService {
 
 	public Double getProductSellingPrice(Long id);
 
-	 
+	void deductQuantity(Long productId, int quantity);
+
+	Long getLastProductId();
 }

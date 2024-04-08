@@ -15,6 +15,9 @@ public class Customerserviceimpl implements CustomerService {
 
 	@Override
 	public Customer savecustomerinfo(Customer customer) {
+		Long lastid = getLatestId();
+		Long nextId = lastid + 1;
+		customer.setId(nextId);
 		return customerRepository.save(customer);
 	}
 
@@ -33,4 +36,13 @@ public class Customerserviceimpl implements CustomerService {
 		customerRepository.deleteById(id);
 	}
 
+	@Override
+	public Long getLatestId() {
+	    Customer latestCustomer = customerRepository.findTopByOrderByIdDesc();
+	    if (latestCustomer != null) {
+	        return latestCustomer.getId();
+	    } else {
+	        return 0L; // or any other default value you prefer
+	    }
+	}
 }

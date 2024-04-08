@@ -14,25 +14,22 @@ import java.util.List;
 @Entity
 @Table(name = "invoices")
 public class Invoice {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String customerName;
 	private String customerAddress;
-	private int invoiceNo;
+	private int invoiceNumber;
 	private String date;
 	private String amountPaid;
 	private String remainingAmount;
 	private String paymentMode;
 	private String discount;
 	private String grandtotal;
+	private String mobileNumber;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "invoice_id")
 	private List<Product> products;
-
-	public Invoice(int lastInvoiceNumber) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public Long getId() {
 		return id;
@@ -58,12 +55,12 @@ public class Invoice {
 		this.customerAddress = customerAddress;
 	}
 
-	public int getInvoiceNo() {
-		return invoiceNo;
+	public int getInvoiceNumber() {
+		return invoiceNumber;
 	}
 
-	public void setInvoiceNo(int invoiceNo) {
-		this.invoiceNo = invoiceNo;
+	public void setInvoiceNumber(int invoiceNumber) {
+		this.invoiceNumber = invoiceNumber;
 	}
 
 	public String getDate() {
@@ -114,12 +111,51 @@ public class Invoice {
 		this.grandtotal = grandtotal;
 	}
 
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
 	public List<Product> getProducts() {
 		return products;
 	}
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public Invoice(Long id, String customerName, String customerAddress, int invoiceNumber, String date,
+			String amountPaid, String remainingAmount, String paymentMode, String discount, String grandtotal,
+			String mobileNumber, List<Product> products) {
+		super();
+		this.id = id;
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+		this.invoiceNumber = invoiceNumber;
+		this.date = date;
+		this.amountPaid = amountPaid;
+		this.remainingAmount = remainingAmount;
+		this.paymentMode = paymentMode;
+		this.discount = discount;
+		this.grandtotal = grandtotal;
+		this.mobileNumber = mobileNumber;
+		this.products = products;
+	}
+
+	public Invoice() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Invoice [id=" + id + ", customerName=" + customerName + ", customerAddress=" + customerAddress
+				+ ", invoiceNumber=" + invoiceNumber + ", date=" + date + ", amountPaid=" + amountPaid
+				+ ", remainingAmount=" + remainingAmount + ", paymentMode=" + paymentMode + ", discount=" + discount
+				+ ", grandtotal=" + grandtotal + ", mobileNumber=" + mobileNumber + ", products=" + products + "]";
 	}
 
 }

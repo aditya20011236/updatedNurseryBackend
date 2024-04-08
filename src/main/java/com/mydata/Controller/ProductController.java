@@ -1,5 +1,6 @@
 package com.mydata.Controller;
 
+import com.mydata.Model.DeductQuantityRequest;
 import com.mydata.Model.Products;
 import com.mydata.Service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @CrossOrigin
@@ -59,5 +61,28 @@ public class ProductController {
 		return productService.getProductSellingPrice(id);
 	}
 
-	
+	@PutMapping("/deductQuantity")
+	public ResponseEntity<Void> deductQuantity(@RequestBody DeductQuantityRequest request) {
+		productService.deductQuantity(request.getProductId(), request.getQuantity());
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	@PutMapping("/{id}/checkQuantity")
+	public ResponseEntity<String> checkQuantity(@PathVariable Long id, @RequestParam int quantity) {
+		Products product = productService.getProductById(id);
+		if (product != null) {
+			if (quantity > product.getAvailableQuantity()) {
+				return ResponseEntity.badRequest().body("Insufficient quantity!");
+			} else {
+				return ResponseEntity.ok("Quantity is available.");
+			}
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+	@GetMapping("/lastId")
+	public Long getLastProductId() {
+		return productService.getLastProductId();
+	}
 }

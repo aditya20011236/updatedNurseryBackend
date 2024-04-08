@@ -16,5 +16,9 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
 	List<Invoice> findByDateBetween(String startDate, String endDate);
 
-	Invoice findTopByOrderByInvoiceNoDesc();
+//	Invoice findTopByOrderByInvoiceNoDesc();
+	
+	@Query("SELECT MAX(e.invoiceNumber) FROM Invoice e")
+	Integer findMaxInvoiceNumber();
+
 }

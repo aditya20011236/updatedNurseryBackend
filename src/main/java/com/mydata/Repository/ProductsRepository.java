@@ -8,6 +8,6 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
 
 	Products findByProductName(String productName);
 
+	Products findTopByOrderByIdDesc();
 
-	
 }
