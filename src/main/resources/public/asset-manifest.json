@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.375c7b3d.css",
+    "main.js": "/static/js/main.2af4a8b7.js",
+    "static/js/239.40f4fd85.chunk.js": "/static/js/239.40f4fd85.chunk.js",
+    "static/js/213.0fd9b302.chunk.js": "/static/js/213.0fd9b302.chunk.js",
+    "static/js/732.c17b2c4c.chunk.js": "/static/js/732.c17b2c4c.chunk.js",
+    "static/media/nurseryimg.jpg": "/static/media/nurseryimg.c2f50ce14685a89598c4.jpg",
+    "static/media/Logo.png": "/static/media/Logo.df9fcd7b5957ed61feda.png",
+    "static/media/Loginbg.jpg": "/static/media/Loginbg.74fa776b8ddf6063a573.jpg",
+    "static/media/Signpdf.jpg": "/static/media/Signpdf.e071e0aa69840777e221.jpg",
+    "index.html": "/index.html",
+    "main.375c7b3d.css.map": "/static/css/main.375c7b3d.css.map",
+    "main.2af4a8b7.js.map": "/static/js/main.2af4a8b7.js.map",
+    "239.40f4fd85.chunk.js.map": "/static/js/239.40f4fd85.chunk.js.map",
+    "213.0fd9b302.chunk.js.map": "/static/js/213.0fd9b302.chunk.js.map",
+    "732.c17b2c4c.chunk.js.map": "/static/js/732.c17b2c4c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.375c7b3d.css",
+    "static/js/main.2af4a8b7.js"
+  ]
+}
