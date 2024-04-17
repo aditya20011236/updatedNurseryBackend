@@ -85,4 +85,14 @@ public class ProductController {
 	public Long getLastProductId() {
 		return productService.getLastProductId();
 	}
+
+	@GetMapping("/{productName}/quantity")
+	public ResponseEntity<Integer> getAvailableQuantity(@PathVariable String productName) {
+		Integer availableQuantity = productService.getAvailableQuantity(productName);
+		if (availableQuantity != null) {
+			return ResponseEntity.ok(availableQuantity);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }

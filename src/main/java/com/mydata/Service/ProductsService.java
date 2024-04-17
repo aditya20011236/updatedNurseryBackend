@@ -20,4 +20,6 @@ public interface ProductsService {
 	void deductQuantity(Long productId, int quantity);
 
 	Long getLastProductId();
+	
+	Integer getAvailableQuantity(String productName);
 }

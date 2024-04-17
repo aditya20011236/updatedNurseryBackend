@@ -44,6 +44,11 @@ public class Products  {
 	public double getMfgPrice() {
 		return mfgPrice;
 	}
+	@Override
+	public String toString() {
+		return "Products [id=" + id + ", productName=" + productName + ", date=" + date + ", availableQuantity="
+				+ availableQuantity + ", mfgPrice=" + mfgPrice + ", sellingPrice=" + sellingPrice + "]";
+	}
 	public void setMfgPrice(double mfgPrice) {
 		this.mfgPrice = mfgPrice;
 	}

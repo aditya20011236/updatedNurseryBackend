@@ -25,7 +25,13 @@ public class InvoiceServiceImpl implements InvoiceService {
 	private int lastInvoiceNumber = 0;
 
 	@Override
+	@Transactional
 	public Invoice saveInvoice(Invoice invoice) {
+		if(invoice.getInvoiceNumber()==null) {
+			int latestInvoiceNumber=getLatestInvoiceNumber();
+			long newInvoiceNumber=latestInvoiceNumber+1;
+			invoice.setInvoiceNumber(newInvoiceNumber);
+		}
 		return invoiceRepository.save(invoice);
 	}
 
@@ -65,5 +71,10 @@ public class InvoiceServiceImpl implements InvoiceService {
 	public int getLatestInvoiceNumber() {
 		Integer maxInvoiceNumber = invoiceRepository.findMaxInvoiceNumber();
 		return maxInvoiceNumber != null ? maxInvoiceNumber : 0;
+	}
+
+	@Override
+	public List<Invoice> getAllinvoices() {
+		return invoiceRepository.findAll();
 	}
 }

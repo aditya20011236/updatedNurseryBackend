@@ -21,4 +21,5 @@ public interface InvoiceService {
 
 	public int getLatestInvoiceNumber();
 
+	List<Invoice>getAllinvoices();
 }

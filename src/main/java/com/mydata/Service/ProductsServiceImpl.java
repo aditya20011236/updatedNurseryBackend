@@ -74,7 +74,14 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 
 	public Long getLastProductId() {
-		Long lastId = productsRepository.findTopByOrderByIdDesc().getId();
-		return lastId != null ? lastId : 0;
+		Products lastProduct = productsRepository.findTopByOrderByIdDesc();
+		return (lastProduct != null) ? lastProduct.getId() : 0L;
 	}
-}
+
+	@Override
+	public Integer getAvailableQuantity(String productName) {
+		   Products product = productsRepository.findByProductName(productName);
+		   return (product != null) ? product.getAvailableQuantity() : 0;
+	    }
+	}
+	

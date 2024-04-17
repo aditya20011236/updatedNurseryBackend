@@ -95,4 +95,9 @@ public class InvoiceController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(-1);
 		}
 	}
+	@GetMapping
+	public List<Invoice>getAllInvoices(){
+		return invoiceService.getAllinvoices();
+		
+	}
 }
