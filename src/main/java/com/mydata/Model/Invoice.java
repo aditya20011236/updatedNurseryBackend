@@ -130,6 +130,6 @@ public class Invoice {
 				+ ", remainingAmount=" + remainingAmount + ", paymentMode=" + paymentMode + ", discount=" + discount
 				+ ", grandtotal=" + grandtotal + ", mobileNumber=" + mobileNumber + ", products=" + products + "]";
 	}
-
+	
 	
 }
