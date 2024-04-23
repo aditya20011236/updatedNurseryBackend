@@ -86,15 +86,28 @@ public class InvoiceController {
 		return grandTotal;
 	}
 
-	@GetMapping("/latest")
-	public ResponseEntity<Integer> getLatestInvoiceNumber() {
-		try {
-			int latestInvoiceNo = invoiceService.getLatestInvoiceNumber();
-			return ResponseEntity.ok(latestInvoiceNo);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(-1);
-		}
-	}
+//	@GetMapping("/latest")
+//	public ResponseEntity<Integer> getLatestInvoiceNumber() {
+//		try {
+//			int latestInvoiceNo = invoiceService.getLatestInvoiceNumber();
+//
+//			return ResponseEntity.ok(latestInvoiceNo);
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(-1);
+//		}
+//	}
+	 @GetMapping("/latest")
+	    public int getLatestInvoiceNumber() {
+	        try {
+	            int latestInvoiceNo = invoiceService.getLatestInvoiceNumber();
+	            return latestInvoiceNo;
+	        } catch (Exception e) {
+	            return -1; // Return -1 in case of error
+	        }
+	    }
+	
+
+	
 	@GetMapping
 	public List<Invoice>getAllInvoices(){
 		return invoiceService.getAllinvoices();
