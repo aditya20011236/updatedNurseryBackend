@@ -1,5 +1,6 @@
 package com.mydata.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.mydata.Model.Product;
 import com.mydata.Model.Products;
+
 import com.mydata.Repository.ProductRepository;
 import com.mydata.Repository.ProductsRepository;
 
@@ -40,5 +42,11 @@ public class ProductServiceimpl implements ProductService {
 	public Products getProductByName(String productName) {
 		return productsRepository.findByProductName(productName);
 	}
+	
+	 @Override
+	    public List<Products> searchProductsByName(String productName) {
+	        return productsRepository.findByProductNameContainingIgnoreCase(productName);
+	    }
 
 }
+

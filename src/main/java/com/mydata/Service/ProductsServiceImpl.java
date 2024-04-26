@@ -6,6 +6,8 @@ import com.mydata.Repository.ProductsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,5 +85,22 @@ public class ProductsServiceImpl implements ProductsService {
 		   Products product = productsRepository.findByProductName(productName);
 		   return (product != null) ? product.getAvailableQuantity() : 0;
 	    }
+	
+//	 @Override
+//	    public List<Products> searchProductsByName(String productName) {
+//	        return productsRepository.findByProductNameContainingIgnoreCase(productName);
+//	    }
+	@Override
+	public List<Products> searchProductsByName(String productName) {
+	    // First, try to find an exact match for the product name
+	    Products exactMatchProduct = productsRepository.findByProductNameIgnoreCase(productName);
+	    if (exactMatchProduct != null) {
+	        // If an exact match is found, return the product
+	        return Collections.singletonList(exactMatchProduct);
+	    } else {
+	        // If no exact match is found, search for products containing the search term as a substring
+	        return productsRepository.findByProductNameContainingIgnoreCase(productName);
+	    }
+	}
 	}
 	

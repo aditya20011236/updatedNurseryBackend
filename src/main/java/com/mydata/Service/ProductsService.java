@@ -22,4 +22,8 @@ public interface ProductsService {
 	Long getLastProductId();
 	
 	Integer getAvailableQuantity(String productName);
+	
+	 List<Products> searchProductsByName(String productName);
 }
+
+

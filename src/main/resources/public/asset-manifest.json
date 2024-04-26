@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.758d4635.css",
-    "main.js": "/static/js/main.dc3a24ea.js",
+    "main.js": "/static/js/main.25e0e5ca.js",
     "static/js/239.40f4fd85.chunk.js": "/static/js/239.40f4fd85.chunk.js",
     "static/js/213.0fd9b302.chunk.js": "/static/js/213.0fd9b302.chunk.js",
     "static/js/732.c17b2c4c.chunk.js": "/static/js/732.c17b2c4c.chunk.js",
@@ -11,13 +11,13 @@
     "static/media/Signpdf.jpg": "/static/media/Signpdf.e071e0aa69840777e221.jpg",
     "index.html": "/index.html",
     "main.758d4635.css.map": "/static/css/main.758d4635.css.map",
-    "main.dc3a24ea.js.map": "/static/js/main.dc3a24ea.js.map",
+    "main.25e0e5ca.js.map": "/static/js/main.25e0e5ca.js.map",
     "239.40f4fd85.chunk.js.map": "/static/js/239.40f4fd85.chunk.js.map",
     "213.0fd9b302.chunk.js.map": "/static/js/213.0fd9b302.chunk.js.map",
     "732.c17b2c4c.chunk.js.map": "/static/js/732.c17b2c4c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.758d4635.css",
-    "static/js/main.dc3a24ea.js"
+    "static/js/main.25e0e5ca.js"
   ]
 }

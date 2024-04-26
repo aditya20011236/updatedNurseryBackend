@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.NoSuchElementException;
+import com.mydata.Service.ProductService;
 
 @RestController
 @CrossOrigin
@@ -95,4 +96,15 @@ public class ProductController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	
+	 @GetMapping("/search")
+	    public ResponseEntity<List<Products>> searchProductsByName(@RequestParam String productName) {
+	        List<Products> products = productService.searchProductsByName(productName);
+	        if (!products.isEmpty()) {
+	            return new ResponseEntity<>(products, HttpStatus.OK);
+	        } else {
+	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	        }
+	    }
 }
+
