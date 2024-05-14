@@ -16,5 +16,6 @@ public interface AdvanceBookingservice {
 	 
 	 public void deleteBookingbyid(Long id);
 	 
+	 Advacebooking getBookingById(Long id);
 
 }

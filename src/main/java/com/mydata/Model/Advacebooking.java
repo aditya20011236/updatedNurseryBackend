@@ -23,10 +23,12 @@ public class Advacebooking {
     private String deliveryDate; 
 	private String amountPaid;
 	private String remainingAmount;
+	private String status;
 	private String paymentMode;
 	private String discount;
 	private String grandTotal;
 	private String mobileNumber;
+	private String invoiceType;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "Advacebooking_id")
 	private List<Product> products;
@@ -78,6 +80,12 @@ public class Advacebooking {
 	public void setRemainingAmount(String remainingAmount) {
 		this.remainingAmount = remainingAmount;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getPaymentMode() {
 		return paymentMode;
 	}
@@ -102,6 +110,12 @@ public class Advacebooking {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+	public String getInvoiceType() {
+		return invoiceType;
+	}
+	public void setInvoiceType(String invoiceType) {
+		this.invoiceType = invoiceType;
+	}
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -109,8 +123,8 @@ public class Advacebooking {
 		this.products = products;
 	}
 	public Advacebooking(Long id, String customerName, String customerAddress, Long invoiceNumber, String date,
-			String deliveryDate, String amountPaid, String remainingAmount, String paymentMode, String discount,
-			String grandTotal, String mobileNumber, List<Product> products) {
+			String deliveryDate, String amountPaid, String remainingAmount, String status, String paymentMode,
+			String discount, String grandTotal, String mobileNumber, String invoiceType, List<Product> products) {
 		super();
 		this.id = id;
 		this.customerName = customerName;
@@ -120,10 +134,12 @@ public class Advacebooking {
 		this.deliveryDate = deliveryDate;
 		this.amountPaid = amountPaid;
 		this.remainingAmount = remainingAmount;
+		this.status = status;
 		this.paymentMode = paymentMode;
 		this.discount = discount;
 		this.grandTotal = grandTotal;
 		this.mobileNumber = mobileNumber;
+		this.invoiceType = invoiceType;
 		this.products = products;
 	}
 	public Advacebooking() {
@@ -134,11 +150,12 @@ public class Advacebooking {
 	public String toString() {
 		return "Advacebooking [id=" + id + ", customerName=" + customerName + ", customerAddress=" + customerAddress
 				+ ", invoiceNumber=" + invoiceNumber + ", date=" + date + ", deliveryDate=" + deliveryDate
-				+ ", amountPaid=" + amountPaid + ", remainingAmount=" + remainingAmount + ", paymentMode=" + paymentMode
-				+ ", discount=" + discount + ", grandTotal=" + grandTotal + ", mobileNumber=" + mobileNumber
-				+ ", products=" + products + "]";
+				+ ", amountPaid=" + amountPaid + ", remainingAmount=" + remainingAmount + ", status=" + status
+				+ ", paymentMode=" + paymentMode + ", discount=" + discount + ", grandTotal=" + grandTotal
+				+ ", mobileNumber=" + mobileNumber + ", invoiceType=" + invoiceType + ", products=" + products + "]";
 	}
+
 	
-	
-	
+
 }
+	

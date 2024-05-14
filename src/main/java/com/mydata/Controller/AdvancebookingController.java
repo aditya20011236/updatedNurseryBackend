@@ -51,6 +51,20 @@ public class AdvancebookingController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+    
+    @GetMapping("/booking/{id}")
+    public ResponseEntity<Advacebooking> getBookingById(@PathVariable Long id) {
+        try {
+            Advacebooking booking = advanceBookingservice.getBookingById(id);
+            if (booking != null) {
+                return ResponseEntity.ok(booking);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
 
     @DeleteMapping("/booking/{id}")
     public ResponseEntity<String> deleteBooking(@PathVariable Long id) {

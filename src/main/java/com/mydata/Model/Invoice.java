@@ -27,6 +27,8 @@ public class Invoice {
 	private String discount;
 	private String grandtotal;
 	private String mobileNumber;
+	private String invoiceType;
+	private String status;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "invoice_id")
 	private List<Product> products;
@@ -96,6 +98,18 @@ public class Invoice {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+	public String getInvoiceType() {
+		return invoiceType;
+	}
+	public void setInvoiceType(String invoiceType) {
+		this.invoiceType = invoiceType;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -104,7 +118,7 @@ public class Invoice {
 	}
 	public Invoice(Long id, String customerName, String customerAddress, Long invoiceNumber, String date,
 			String amountPaid, String remainingAmount, String paymentMode, String discount, String grandtotal,
-			String mobileNumber, List<Product> products) {
+			String mobileNumber, String invoiceType, String status, List<Product> products) {
 		super();
 		this.id = id;
 		this.customerName = customerName;
@@ -117,6 +131,8 @@ public class Invoice {
 		this.discount = discount;
 		this.grandtotal = grandtotal;
 		this.mobileNumber = mobileNumber;
+		this.invoiceType = invoiceType;
+		this.status = status;
 		this.products = products;
 	}
 	public Invoice() {
@@ -128,7 +144,8 @@ public class Invoice {
 		return "Invoice [id=" + id + ", customerName=" + customerName + ", customerAddress=" + customerAddress
 				+ ", invoiceNumber=" + invoiceNumber + ", date=" + date + ", amountPaid=" + amountPaid
 				+ ", remainingAmount=" + remainingAmount + ", paymentMode=" + paymentMode + ", discount=" + discount
-				+ ", grandtotal=" + grandtotal + ", mobileNumber=" + mobileNumber + ", products=" + products + "]";
+				+ ", grandtotal=" + grandtotal + ", mobileNumber=" + mobileNumber + ", invoiceType=" + invoiceType
+				+ ", status=" + status + ", products=" + products + "]";
 	}
 	
 	

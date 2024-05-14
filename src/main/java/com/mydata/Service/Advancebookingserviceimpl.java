@@ -46,6 +46,10 @@ public class Advancebookingserviceimpl implements AdvanceBookingservice {
 		advanceBookingRepo.deleteById(id);
 		
 	}
+	 @Override
+	    public Advacebooking getBookingById(Long id) {
+	        return advanceBookingRepo.findById(id).orElse(null);
+	    }
 
 	
 
